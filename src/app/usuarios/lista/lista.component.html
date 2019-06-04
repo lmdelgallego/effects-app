@@ -1,4 +1,26 @@
-<div class="card-columns">
+<div class="row" *ngIf="loading">
+  <div class="col">
+    <div class="alert alert-info text-center">
+      <i class="fas fa-info-circle"></i>
+      Loading...
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="error">
+    <div class="col">
+      <div class="alert alert-danger text-center">
+        <i class="fas fa-info-circle"></i>
+        <h2>Error: {{error.status}}</h2>
+        <p>
+          {{error.message}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+<div class="card-columns" *ngIf="!loading">
   <div class="card" *ngFor="let user of usuarios">
     <img [src]="user.avatar" class="card-img-top">
     <div class="card-body">
